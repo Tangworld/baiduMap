@@ -45,19 +45,21 @@ public final class R {
         public static final int splash4=0x7f020019;
     }
     public static final class id {
-        public static final int btnLogin=0x7f07000b;
-        public static final int btnReg=0x7f07000c;
-        public static final int buttonPanel=0x7f07000a;
-        public static final int check1=0x7f070008;
-        public static final int check2=0x7f070009;
-        public static final int checkPanel=0x7f070007;
-        public static final int enter=0x7f07000d;
+        public static final int btnLogin=0x7f07000d;
+        public static final int btnReg=0x7f07000e;
+        public static final int buttonPanel=0x7f07000c;
+        public static final int check1=0x7f07000a;
+        public static final int check2=0x7f07000b;
+        public static final int checkPanel=0x7f070009;
+        public static final int enter=0x7f07000f;
         public static final int loginPanel=0x7f070001;
         public static final int myappname=0x7f070002;
-        public static final int pass=0x7f070006;
-        public static final int passwordPanel=0x7f070005;
+        public static final int pas=0x7f070007;
+        public static final int pass=0x7f070008;
+        public static final int passwordPanel=0x7f070006;
         public static final int screen=0x7f070000;
-        public static final int user=0x7f070004;
+        public static final int use=0x7f070004;
+        public static final int user=0x7f070005;
         public static final int usernamePanel=0x7f070003;
     }
     public static final class layout {
