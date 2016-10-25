@@ -1,32 +1,137 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
-    <TextView 
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/username"
-        />
-    <EditText 
-        android:id="@+id/editusername"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:hint="username"
-        />
-    <TextView 
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/password"
-        />
-    <EditText 
-        android:id="@+id/editpassword"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:hint="password"
-        />
+    android:background="@drawable/background_login"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
 
-</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/loginPanel"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/background_login_div"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/myappname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp"
+            android:text="@string/logintheme"
+            android:textSize="50sp"
+            android:textStyle="italic"
+            android:typeface="serif" />
+
+        <LinearLayout
+            android:id="@+id/usernamePanel"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_below="@id/myappname"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:paddingLeft="30dp"
+                android:text="@string/username"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/user"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="username"
+                android:padding="15dp"
+                android:paddingLeft="100dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/passwordPanel"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_below="@id/usernamePanel"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:paddingLeft="30dp"
+                android:text="@string/password"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/pass"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="password"
+                android:padding="15dp"
+                android:paddingLeft="150dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/checkPanel"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_below="@id/passwordPanel"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/check1"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/rememuser" />
+
+            <CheckBox
+                android:id="@+id/check2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/remempass" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonPanel"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_below="@id/checkPanel"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="50dip"
+                android:background="@drawable/background_button_div"
+                android:paddingLeft="50dip"
+                android:paddingRight="50dip"
+                android:text="@string/login"
+                android:textColor="@android:color/white" />
+
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#160;&#160;&#160;&#160;"
+                />
+            <Button
+                android:id="@+id/btnReg"
+                android:layout_width="wrap_content"
+                android:layout_height="50dip"
+                android:background="@drawable/background_button_div"
+                android:paddingLeft="50dip"
+                android:paddingRight="50dip"
+                android:text="@string/regist"
+                android:textColor="@android:color/white" />
+        </LinearLayout>  <!-- -->
+    </RelativeLayout>
+
+</RelativeLayout>
