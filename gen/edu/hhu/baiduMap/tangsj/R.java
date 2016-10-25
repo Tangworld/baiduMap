@@ -48,15 +48,26 @@ public final class R {
         public static final int btnLogin=0x7f07000d;
         public static final int btnReg=0x7f07000e;
         public static final int buttonPanel=0x7f07000c;
+        public static final int cancelbutton=0x7f070019;
         public static final int check1=0x7f07000a;
         public static final int check2=0x7f07000b;
         public static final int checkPanel=0x7f070009;
-        public static final int enter=0x7f07000f;
-        public static final int loginPanel=0x7f070001;
-        public static final int myappname=0x7f070002;
+        public static final int con=0x7f070012;
+        public static final int confirmPanel=0x7f070011;
+        public static final int confirmpass=0x7f070013;
+        public static final int enter=0x7f07001a;
+        public static final int gender=0x7f070015;
+        public static final int loginPanel=0x7f070002;
+        public static final int loginbutton=0x7f070018;
+        public static final int myappname=0x7f070001;
         public static final int pas=0x7f070007;
         public static final int pass=0x7f070008;
         public static final int passwordPanel=0x7f070006;
+        public static final int radio1=0x7f070016;
+        public static final int radio2=0x7f070017;
+        public static final int radioPanel=0x7f070014;
+        public static final int registPanel=0x7f070010;
+        public static final int registtheme=0x7f07000f;
         public static final int screen=0x7f070000;
         public static final int use=0x7f070004;
         public static final int user=0x7f070005;
@@ -64,20 +75,24 @@ public final class R {
     }
     public static final class layout {
         public static final int login=0x7f030000;
-        public static final int splash=0x7f030001;
-        public static final int splash2=0x7f030002;
-        public static final int splash3=0x7f030003;
-        public static final int splash4=0x7f030004;
+        public static final int regist=0x7f030001;
+        public static final int splash=0x7f030002;
+        public static final int splash2=0x7f030003;
+        public static final int splash3=0x7f030004;
+        public static final int splash4=0x7f030005;
     }
     public static final class string {
         public static final int accout=0x7f050004;
         public static final int action_settings=0x7f050003;
         public static final int app_name=0x7f050000;
+        public static final int cancel=0x7f05000f;
+        public static final int confimpassword=0x7f050010;
         public static final int content=0x7f05000a;
         public static final int login=0x7f050006;
         public static final int logintheme=0x7f05000b;
         public static final int password=0x7f050002;
         public static final int regist=0x7f050007;
+        public static final int registtheme=0x7f05000e;
         public static final int remempass=0x7f05000d;
         public static final int rememuser=0x7f05000c;
         public static final int repeatpassword=0x7f050005;

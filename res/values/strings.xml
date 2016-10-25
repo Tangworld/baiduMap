@@ -14,5 +14,8 @@
     <string name="logintheme">用户登录</string>
     <string name="rememuser">记住账号</string>
     <string name="remempass">记住密码</string>
+    <string name="registtheme">注册账户</string>
+    <string name="cancel">取消</string>
+    <string name="confimpassword">确认密码</string>
 
 </resources>

@@ -34,6 +34,7 @@ public class Splash4Activity extends Activity{
 			public void onClick(View arg0) {
 				Intent intent = new Intent(Splash4Activity.this,LoginActivity.class);
 				startActivity(intent);
+				finish();
 			}
 		});
 //		handler.sendEmptyMessageDelayed(1, 1500);

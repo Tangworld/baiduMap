@@ -10,31 +10,34 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <RelativeLayout
-        android:id="@+id/loginPanel"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/background_login_div"
-        android:orientation="vertical" >
-
-        <TextView
+     <TextView
             android:id="@+id/myappname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:paddingTop="10dp"
+            android:paddingTop="50dp"
             android:text="@string/logintheme"
             android:textSize="50sp"
             android:textStyle="italic"
             android:typeface="serif" />
+    
+    <RelativeLayout
+        android:id="@+id/loginPanel"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/myappname"
+        android:background="@drawable/background_login_div"
+        android:orientation="vertical" >
+
+       
 
         <LinearLayout
             android:id="@+id/usernamePanel"
             android:layout_width="fill_parent"
             android:layout_height="80dp"
-            android:layout_below="@id/myappname"
+            android:paddingTop="20dp"
             android:orientation="horizontal" >
 
             <TextView
@@ -59,6 +62,7 @@
             android:id="@+id/passwordPanel"
             android:layout_width="fill_parent"
             android:layout_height="80dp"
+            android:paddingTop="20dp"
             android:layout_below="@id/usernamePanel"
             android:orientation="horizontal" >
 
@@ -104,8 +108,10 @@
         <LinearLayout
             android:id="@+id/buttonPanel"
             android:layout_width="fill_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/checkPanel"
+            android:paddingTop="50dp"
+            android:paddingBottom="20dp"
             android:gravity="center"
             android:orientation="horizontal" >
 
