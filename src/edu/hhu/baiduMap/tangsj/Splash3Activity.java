@@ -26,6 +26,6 @@ public class Splash3Activity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.splash3);
-		handler.sendEmptyMessageDelayed(1, 1500);
+		handler.sendEmptyMessageDelayed(1, 1000);
 	}
 }

@@ -28,7 +28,7 @@ public class LoginActivity extends Activity{
 		typeFace1 =Typeface.createFromAsset(getAssets(),"fonts/liuxingjianti.ttf");
 		typeFace2 =Typeface.createFromAsset(getAssets(),"fonts/nuojiya.ttf");
 		registbutton = (Button)findViewById(R.id.btnReg);
-		textView3.setText("√‹  ¬Î");
+		textView3.setText("ÂØÜ  Á†Å");
 		textView1.setTypeface(typeFace1);
 		textView2.setTypeface(typeFace2);
 		textView3.setTypeface(typeFace2);

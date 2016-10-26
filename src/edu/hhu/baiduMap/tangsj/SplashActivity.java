@@ -23,11 +23,11 @@ public class SplashActivity extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		ÎÞ±êÌâÀ¸£º
+//		ï¿½Þ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-//		È«ÆÁ£º
+//		È«ï¿½ï¿½ï¿½ï¿½
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.splash);
-		handler.sendEmptyMessageDelayed(1, 3000);
+		handler.sendEmptyMessageDelayed(1, 1000);
 	}
 }

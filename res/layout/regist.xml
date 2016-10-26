@@ -6,7 +6,7 @@
     <RelativeLayout
         android:id="@+id/screen"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="1000dp"
         android:background="@drawable/background_login"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -31,7 +31,6 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:paddingBottom="50dp"
             android:layout_below="@id/registtheme"
             android:background="@drawable/background_login_div"
             android:orientation="vertical" >
@@ -85,7 +84,8 @@
                     android:layout_height="wrap_content"
                     android:hint="password"
                     android:padding="15dp"
-                    android:paddingLeft="150dp" />
+                    android:paddingLeft="150dp"
+                    android:password="true" />
             </LinearLayout>
             
             <LinearLayout
@@ -110,7 +110,8 @@
                     android:layout_height="wrap_content"
                     android:hint="confirm password"
                     android:padding="15dp"
-                    android:paddingLeft="150dp" />
+                    android:paddingLeft="150dp"
+                    android:password="true" />
             </LinearLayout>
 
             <LinearLayout
@@ -146,12 +147,182 @@
                     android:text="女" />
                 </RadioGroup>
             </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/phonePanel"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_below="@id/radioPanel"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingLeft="30dp"
+                    android:text="手机"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/editphone"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="phone number"
+                    android:padding="15dp"
+                    android:paddingLeft="150dp" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/mailPanel"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_below="@id/phonePanel"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/mail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingLeft="30dp"
+                    android:text="邮箱"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/editmail"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="email"
+                    android:padding="15dp"
+                    android:paddingLeft="150dp" />
+            </LinearLayout>
+            
+            
+            <LinearLayout
+                android:id="@+id/birthdayPanel"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_below="@id/mailPanel"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/birth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingLeft="30dp"
+                    android:text="生日"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/editbirth"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="birthday"
+                    android:padding="15dp"
+                    android:paddingLeft="150dp"
+                    android:focusable="false"
+                    android:editable="false"
+                     />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/areaPanel"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_below="@id/birthdayPanel"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingLeft="30dp"
+                    android:text="籍贯"
+                    android:textSize="20dp" />
+
+                <Spinner 
+                    android:id="@+id/province"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView 
+                    android:id="@+id/line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:visibility="invisible"
+                    />
+                 <Spinner 
+                    android:id="@+id/city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/favorPanel"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_below="@id/areaPanel"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/favor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingLeft="30dp"
+                    android:text="兴趣"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/editfavor"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="hobby"
+                    android:padding="15dp"
+                    android:paddingLeft="150dp"
+                    android:focusable="false"
+                    android:editable="false"
+                     />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/motoPanel"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_below="@id/favorPanel"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/motto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingLeft="30dp"
+                    android:text="人生格言"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/editmotto"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="moto"
+                    android:padding="15dp"
+                    android:paddingLeft="150dp"
+                    android:lines="3"
+                     />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/buttonPanel"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
-                android:layout_below="@id/radioPanel"
+                android:layout_below="@id/motoPanel"
                 android:gravity="center"
                 android:orientation="horizontal" >
 

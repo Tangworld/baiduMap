@@ -81,7 +81,8 @@
                 android:layout_height="wrap_content"
                 android:hint="password"
                 android:padding="15dp"
-                android:paddingLeft="150dp" />
+                android:paddingLeft="150dp"
+                android:password="true" />
         </LinearLayout>
 
         <LinearLayout
