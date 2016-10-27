@@ -137,23 +137,37 @@ public class BaiduMapActivity extends Activity implements OnMenuItemClickListene
 			builder.setView(jwddwView);
 			final EditText jingduEditText = (EditText) jwddwView.findViewById(R.id.jingduEditTextId);
 			final EditText weiduEditText = (EditText) jwddwView.findViewById(R.id.weiduEditTextId);
+		
 			builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 					String jingduString = jingduEditText.getText().toString().trim();
 					String weiduString = weiduEditText.getText().toString().trim();
 					double jindu = Double.parseDouble(jingduString);
 					double weidu = Double.parseDouble(weiduString);
-					// 定义Maker坐标点
-					LatLng point = new LatLng(weidu, jindu);
-					// 构建Marker图标
-					BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.drawable.mark);
-					// 构建MarkerOption，用于在地图上添加Marker
-					OverlayOptions option = new MarkerOptions().position(point).icon(bitmap);
-					// 在地图上添加Marker，并显示
-					mBaiduMap.addOverlay(option);
-					// 将地图移动过去
-					mBuilder.target(point);
-					mBaiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(mBuilder.build()));
+					boolean jingflag = false;
+					boolean weiflag = false;
+					if(jindu>=0&&jindu<=180)jingflag = true;
+					if(weidu>=0&&weidu<=90)weiflag = true;
+					if((!jingflag)&&(!weiflag)){
+						Toast.makeText(context, "无效的经纬度", Toast.LENGTH_LONG).show();
+					}else if((jingflag)&&(!weiflag)){
+						Toast.makeText(context, "无效的纬度", Toast.LENGTH_LONG).show();
+					}else if((!jingflag)&&weiflag){
+						Toast.makeText(context, "无效的经度", Toast.LENGTH_LONG).show();
+					}else{
+						// 定义Maker坐标点
+						LatLng point = new LatLng(weidu, jindu);
+						// 构建Marker图标
+						BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.drawable.mark);
+						// 构建MarkerOption，用于在地图上添加Marker
+						OverlayOptions option = new MarkerOptions().position(point).icon(bitmap);
+						// 在地图上添加Marker，并显示
+						mBaiduMap.addOverlay(option);
+						// 将地图移动过去
+						mBuilder.target(point);
+						mBaiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(mBuilder.build()));
+					}
+					
 				}
 			});
 			builder.setNegativeButton("取消", null);
@@ -209,8 +223,10 @@ public class BaiduMapActivity extends Activity implements OnMenuItemClickListene
 					double jingdud = Double.parseDouble(longlatid[0]);
 					double weidud = Double.parseDouble(longlatid[1]);
 					double result = Distance.GetLongDistance(jingdus, weidus, jingdud, weidud);
-					long km = (int)(result/1000);
-					Toast.makeText(context, "这两座城市间的距离约为："+km+"公里", Toast.LENGTH_LONG).show();
+					result/=1000;
+					java.text.DecimalFormat df = new java.text.DecimalFormat("#.00"); 
+					result = Double.parseDouble(df.format(result));
+					Toast.makeText(context, "这两座城市间的距离约为："+result+"公里", Toast.LENGTH_LONG).show();
 				}
 			});
 			
