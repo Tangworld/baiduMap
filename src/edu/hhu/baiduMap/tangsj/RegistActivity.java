@@ -3,10 +3,9 @@ package edu.hhu.baiduMap.tangsj;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import edu.hhu.baiduMap.tangsj.util.SqlService;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -30,6 +29,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import edu.hhu.baiduMap.tangsj.domain.User;
+import edu.hhu.baiduMap.tangsj.util.SqlService;
 
 public class RegistActivity extends Activity {
 
@@ -292,7 +293,7 @@ public class RegistActivity extends Activity {
 		registbutton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				
+				System.out.println("clicked!");
 				registbutton = (RadioButton)findViewById(group.getCheckedRadioButtonId());
 				
 				
@@ -307,10 +308,28 @@ public class RegistActivity extends Activity {
 				 String area = arearesult;
 				 String hobby = editfavor.getText().toString().trim();
 				 String motto = editmotto.getText().toString().trim();
+				 
+				 List<User> list=service.findbysql("");
+				 if(list.size()>0){
+					 boolean flag = false;
+					 for(User u:list){
+						 if(username.equals(u.getUsername())){
+							 flag = true;
+							 break;
+						 }
+					 }
+					 if(flag == true){
+						 Toast.makeText(context, "已经存在的用户名", Toast.LENGTH_LONG).show();
+					 }
+				 }
+				 
 				 if(username.equals("")){
 					 Toast.makeText(context, "用户名不能为空", Toast.LENGTH_LONG).show();
 				 }else if(password.equals("")){
 					 Toast.makeText(context, "密码不能为空", Toast.LENGTH_LONG).show();
+				 }else if(!password.equals(confirmpassword)){
+					 Toast.makeText(context, "两次密码不一致", Toast.LENGTH_LONG).show();
+					 System.out.println("密码不一致");
 				 }else if(confirmpassword.equals("")){
 					 Toast.makeText(context, "确认密码不能为空", Toast.LENGTH_LONG).show();
 				 }else if(!isMobile(phone)){

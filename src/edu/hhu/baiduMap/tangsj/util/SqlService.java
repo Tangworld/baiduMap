@@ -6,6 +6,7 @@ import java.util.List;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import edu.hhu.baiduMap.tangsj.domain.Current;
 import edu.hhu.baiduMap.tangsj.domain.User;
 
 public class SqlService {
@@ -31,7 +32,7 @@ public class SqlService {
 		List<User> list = new ArrayList<User>();
 		DBOpenHelper dbOpenHelper = new DBOpenHelper(context);
 		SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
-		Cursor cursor = db.rawQuery("select * from person ", null);
+		Cursor cursor = db.rawQuery("select * from users ", null);
 
 		while (cursor.moveToNext()) {
 
@@ -51,6 +52,37 @@ public class SqlService {
 
 		return list;
 
+	}
+	
+	public List<Current> getCurrent(){
+		List<Current> list = new ArrayList<Current>();
+		DBOpenHelper dbOpenHelper = new DBOpenHelper(context);
+		SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
+		Cursor cursor = db.rawQuery("select * from current ", null);
+		
+		while(cursor.moveToNext()){
+			String username = cursor.getString(cursor.getColumnIndex("username"));
+			String password = cursor.getString(cursor.getColumnIndex("password"));
+			String priority = cursor.getString(cursor.getColumnIndex("priority"));
+			Current current = new Current(username,password,priority);
+			list.add(current);
+		}
+		return list;
+	}
+	
+	
+	public void saveCurrent(String username,String password,String priority){
+		DBOpenHelper dbOpenHelper = new DBOpenHelper(context);
+		SQLiteDatabase database = dbOpenHelper.getReadableDatabase();
+		String sql = "insert into current (username,password,priority) values ('"+username+"','"+password+"','"+priority+"')";
+		database.execSQL(sql);
+	}
+	
+	public void deleteCurrent(){
+		DBOpenHelper dbOpenHelper = new DBOpenHelper(context);
+		SQLiteDatabase database = dbOpenHelper.getReadableDatabase();
+		String sql = "delete from current ";
+		database.execSQL(sql);
 	}
 
 }

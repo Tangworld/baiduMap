@@ -297,6 +297,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
                 android:layout_below="@id/favorPanel"
+                android:gravity="top"
                 android:orientation="horizontal" >
 
                 <TextView
@@ -312,6 +313,7 @@
                     android:id="@+id/editmotto"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
+                   	android:gravity="top"
                     android:hint="motto"
                     android:padding="15dp"
                     android:paddingLeft="150dp"
