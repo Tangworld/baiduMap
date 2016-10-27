@@ -15,7 +15,7 @@ public class DBOpenHelper extends SQLiteOpenHelper{
 	 * @param version   ��ݿ�汾��
 	 */
 	public DBOpenHelper(Context context) {
-		super(context, "baiduMap.db", null, 1);
+		super(context, "baiduMap2.db", null, 1);
 	}
 
 	/**
