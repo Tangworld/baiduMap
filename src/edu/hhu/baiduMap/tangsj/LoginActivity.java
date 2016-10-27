@@ -29,6 +29,7 @@ public class LoginActivity extends Activity{
 	private List<Current> list;
 	private List<User>users;
 	private Context context = this;
+	private User currentuser = new User();
 	
 	private TextView textView1,textView2,textView3;
 	private CheckBox check1,check2;
@@ -121,6 +122,7 @@ public class LoginActivity extends Activity{
 						userflag = true;
 						if(s.getPassword().equals(password)){
 							passflag = true;
+							currentuser = s;
 						}
 					}
 				}
@@ -128,6 +130,7 @@ public class LoginActivity extends Activity{
 					if(passflag){
 						//TODO 开启地图页面
 						Intent intent = new Intent(LoginActivity.this,BaiduMapActivity.class);
+						intent.putExtra("currentusername", currentuser.getUsername());
 						startActivity(intent);
 						finish();
 					}else{

@@ -1,10 +1,12 @@
 package edu.hhu.baiduMap.tangsj;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -16,6 +18,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
@@ -29,6 +32,9 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 
+import edu.hhu.baiduMap.tangsj.domain.User;
+import edu.hhu.baiduMap.tangsj.util.SqlService;
+
 public class BaiduMapActivity extends Activity implements OnMenuItemClickListener{
 	
 	private MapView mMapView;
@@ -37,6 +43,7 @@ public class BaiduMapActivity extends Activity implements OnMenuItemClickListene
 	private BaiduMap mBaiduMap;
 	private Builder mBuilder;
 	private Map map = new HashMap<String, String>();
+	Context context = this;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -184,8 +191,55 @@ public class BaiduMapActivity extends Activity implements OnMenuItemClickListene
 			builder.show();
 			break;
 		case 3:
+			final View distanceView = View.inflate(BaiduMapActivity.this,R.layout.dialog_distance, null);
+			builder.setTitle("公里数计算");
+			builder.setView(distanceView);
+			final EditText sourceEditTextId = (EditText) distanceView.findViewById(R.id.sourceEditTextId);
+			final EditText destinationEditTextId = (EditText) distanceView.findViewById(R.id.destinationEditTextId);
+			builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int which) {
+					String source = sourceEditTextId.getText().toString().trim();
+					String destination = destinationEditTextId.getText().toString().trim();
+					String tempsource = (String)map.get(source);
+					String[] longlatis = tempsource.split("-");
+					double jingdus = Double.parseDouble(longlatis[0]);
+					double weidus = Double.parseDouble(longlatis[1]);
+					String tempdestination = (String)map.get(destination);
+					String[] longlatid = tempdestination.split("-");
+					double jingdud = Double.parseDouble(longlatid[0]);
+					double weidud = Double.parseDouble(longlatid[1]);
+					double result = Distance.GetLongDistance(jingdus, weidus, jingdud, weidud);
+					long km = (int)(result/1000);
+					Toast.makeText(context, "这两座城市间的距离约为："+km+"公里", Toast.LENGTH_LONG).show();
+				}
+			});
+			
+			builder.setNegativeButton("取消", null);
+			builder.create();
+			builder.show();
 			break;
 		case 4:
+			String currentusername = getIntent().getStringExtra("currentusername");
+			SqlService service=new SqlService(getApplicationContext());
+	    	List<User> list=service.findbysql("");
+	    	User currentuser = new User();
+	    	for(User u:list){
+	    		if(u.getUsername().equals(currentusername)){
+	    			currentuser = u;
+	    		}
+	    	}
+	    	AlertDialog.Builder alertbuilder = new AlertDialog.Builder(this).setTitle("个人信息");
+	    	String result = "用户名："+currentuser.getUsername()+"\n";
+	    	result += "性别："+currentuser.getGender()+"\n";
+	    	result +="电话："+currentuser.getPhone()+"\n";
+	    	result += "邮箱："+currentuser.getMail()+"\n";
+	    	result += "生日："+currentuser.getBirthday()+"\n";
+	    	result += "籍贯："+currentuser.getArea()+"\n";
+	    	result += "兴趣："+currentuser.getHobby()+"\n";
+	    	result += "人生格言："+currentuser.getMotto()+"\n";
+	    	alertbuilder.setMessage(result);
+	    	alertbuilder.setPositiveButton("是",null);
+	    	alertbuilder.setNegativeButton("否",null).show();
 			break;
 		case 5:
 			mBaiduMap.clear();
@@ -252,6 +306,7 @@ public class BaiduMapActivity extends Activity implements OnMenuItemClickListene
 	}
 	
 	private void citylola(){
+//		private Map map = new HashMap<String, String>();
 		map.put("北京市","116.4-39.9");
 		map.put("天津市","117.2-39.12");
 		map.put("石家庄市","114.52-38.05");
