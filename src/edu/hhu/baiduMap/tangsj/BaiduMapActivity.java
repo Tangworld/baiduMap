@@ -254,8 +254,8 @@ public class BaiduMapActivity extends Activity implements OnMenuItemClickListene
 	    	result += "兴趣："+currentuser.getHobby()+"\n";
 	    	result += "人生格言："+currentuser.getMotto()+"\n";
 	    	alertbuilder.setMessage(result);
-	    	alertbuilder.setPositiveButton("是",null);
-	    	alertbuilder.setNegativeButton("否",null).show();
+	    	alertbuilder.setPositiveButton("确定",null).show();
+//	    	alertbuilder.setNegativeButton("取消",null).show();
 			break;
 		case 5:
 			mBaiduMap.clear();

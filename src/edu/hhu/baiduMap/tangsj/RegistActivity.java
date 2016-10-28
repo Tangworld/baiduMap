@@ -229,7 +229,7 @@ public class RegistActivity extends Activity {
 				}else{
 					line.setVisibility(View.VISIBLE);
 					city.setVisibility(View.VISIBLE);
-					ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item,ProvinceCityUtil.CITY_ARRAY[provinceIndex]);
+					ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item,ProvinceCityUtil.CITY_ARRAY[provinceIndex]);
 					city.setAdapter(arrayAdapter);
 					
 				}
@@ -301,7 +301,7 @@ public class RegistActivity extends Activity {
 				 String password = editpass.getText().toString().trim();
 				 String confirmpassword = editconfirm.getText().toString().trim();
 				 String gender = "";
-				 if(registbutton!=null)registbutton.getText().toString().trim();
+				 if(registbutton!=null)gender = registbutton.getText().toString().trim();
 				 String phone = editphone.getText().toString().trim();
 				 String mail = editmail.getText().toString().trim();
 				 String birthday = editbirth.getText().toString().trim();
